@@ -1,35 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>letter</title>
+  <title>Pregunta</title>
   <link rel="stylesheet" href="./style.css">
-
 </head>
 <body>
-<div class="envlope-wrapper">
-    <div id="envelope" class="close">
-        <div class="front flap"></div>
-        <div class="front pocket"></div>
-        <div class="letter">
-            <div class="words line1"></div>
-            <div class="words line2"></div>
-            <div class="words line3"></div>
-            <div class="words line4"></div>
-        </div>
-        <div class="hearts">
-            <div class="heart a1"></div>
-            <div class="heart a2"></div>
-            <div class="heart a3"></div>
-        </div>
+  <!-- Primera página con la pregunta -->
+  <div id="question-page">
+    <div class="question-container">
+      <div class="floating-text">¿Puedo ser tu San Valentin?</div>
+      <div class="buttons">
+        <button id="yes-btn">Sí</button>
+        <button id="no-btn">No</button>
+      </div>
     </div>
-</div>
-<div class="reset">
-    <button id="open">Open</button>
-    <button id="reset">Reset</button>   
-</div>
+  </div>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <script>
+    // Redirigir a letter.html al hacer clic en "Sí"
+    document.getElementById("yes-btn").addEventListener("click", function() {
+      window.location.href = "letter.html";
+    });
 
+    // Mover el botón "No" al pasar el mouse
+    const noButton = document.getElementById("no-btn");
+    const originalPosition = { left: noButton.offsetLeft, top: noButton.offsetTop }; // Guardar posición inicial
+
+    noButton.addEventListener("mouseover", function() {
+      const radius = 200; // Radio de movimiento
+      const angle = Math.random() * 2 * Math.PI; // Ángulo aleatorio
+      const newX = Math.cos(angle) * radius; // Nueva posición X
+      const newY = Math.sin(angle) * radius; // Nueva posición Y
+
+      noButton.style.position = "absolute";
+      noButton.style.left = `${newX}px`;
+      noButton.style.top = `${newY}px`;
+    });
+
+    // Restaurar la posición inicial del botón "No" al cargar la página
+    window.addEventListener("load", function() {
+      noButton.style.position = "static"; // Restaurar posición inicial
+    });
+  </script>
 </body>
 </html>
