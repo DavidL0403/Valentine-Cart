@@ -61,14 +61,17 @@
       function openEnvelope() {
         envelope.addClass("open").removeClass("close");
         setTimeout(() => {
-          loveMessage.removeClass("hidden"); // Mostrar el mensaje "Te Amo"
+          loveMessage.removeClass("hidden").addClass("bounceIn"); // Mostrar el mensaje "Te Amo" con animación
+          setTimeout(() => {
+            window.location.href = "collage.html"; // Redirigir a collage.html después de 2 segundos
+          }, 2000); // Esperar 2 segundos antes de redirigir
         }, 500); // Pequeño retraso para mejor efecto visual
       }
 
       // Función para cerrar la carta
       function closeEnvelope() {
         envelope.addClass("close").removeClass("open");
-        loveMessage.addClass("hidden"); // Ocultar el mensaje "Te Amo"
+        loveMessage.addClass("hidden").removeClass("bounceIn"); // Ocultar el mensaje "Te Amo"
       }
     });
   </script>

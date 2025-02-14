@@ -1,48 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pregunta</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <!-- Primera página con la pregunta -->
-  <div id="question-page">
-    <div class="question-container">
-      <div class="floating-text">¿Puedo ser tu San Valentin?</div>
-      <div class="buttons">
-        <button id="yes-btn">Sí</button>
-        <button id="no-btn">No</button>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pregunta</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Primera página con la pregunta -->
+    <div id="question-page">
+      <div class="question-container">
+        <div class="floating-text">¿Puedo ser tu San Valentin?</div>
+        <div class="buttons">
+          <button id="yes-btn">Sí</button>
+          <button id="no-btn">No</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    // Redirigir a letter.html al hacer clic en "Sí"
-    document.getElementById("yes-btn").addEventListener("click", function() {
-      window.location.href = "letter.html";
-    });
+    <script>
+      // Redirigir a letter.html al hacer clic en "Sí"
+      document.getElementById("yes-btn").addEventListener("click", function () {
+        window.location.href = "letter.html";
+      });
 
-    // Mover el botón "No" al pasar el mouse
-    const noButton = document.getElementById("no-btn");
-    const originalPosition = { left: noButton.offsetLeft, top: noButton.offsetTop }; // Guardar posición inicial
+      // Mover el botón "No" al pasar el mouse
+      const noButton = document.getElementById("no-btn");
+      const originalPosition = {
+        left: noButton.offsetLeft,
+        top: noButton.offsetTop,
+      }; // Guardar posición inicial
 
-    noButton.addEventListener("mouseover", function() {
-      const radius = 200; // Radio de movimiento
-      const angle = Math.random() * 2 * Math.PI; // Ángulo aleatorio
-      const newX = Math.cos(angle) * radius; // Nueva posición X
-      const newY = Math.sin(angle) * radius; // Nueva posición Y
+      noButton.addEventListener("mouseover", function () {
+        const radius = 200; // Radio de movimiento
+        const angle = Math.random() * 2 * Math.PI; // Ángulo aleatorio
+        const newX = Math.cos(angle) * radius; // Nueva posición X
+        const newY = Math.sin(angle) * radius; // Nueva posición Y
 
-      noButton.style.position = "absolute";
-      noButton.style.left = `${newX}px`;
-      noButton.style.top = `${newY}px`;
-    });
+        noButton.style.position = "absolute";
+        noButton.style.left = `${newX}px`;
+        noButton.style.top = `${newY}px`;
+      });
 
-    // Restaurar la posición inicial del botón "No" al cargar la página
-    window.addEventListener("load", function() {
-      noButton.style.position = "static"; // Restaurar posición inicial
-    });
-  </script>
-</body>
+      // Restaurar la posición inicial del botón "No" al cargar la página
+      window.addEventListener("load", function () {
+        noButton.style.position = "static"; // Restaurar posición inicial
+      });
+    </script>
+  </body>
 </html>

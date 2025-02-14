@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Collage de Imágenes</title>
+    <style>
+      /* Estilos generales */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        margin: 0;
+        font-family: "Poppins", Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      /* Contenedor del collage, con scroll habilitado */
+      .collage-wrapper {
+        max-height: 80vh; /* Limitar la altura visible del collage */
+        width: 100%;
+        overflow-y: scroll; /* Permitir el desplazamiento vertical */
+        padding: 20px;
+      }
+
+      /* Contenedor de las imágenes (en una cuadrícula) */
+      .collage-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-width: 800px;
+        margin: auto;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      .collage-container img {
+        width: 100%;
+        height: 100%; /* Ajusta la altura de las imágenes para que no se recorten */
+        object-fit: contain; /* Las imágenes se mantienen completas */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .collage-container img.cupon {
+        grid-column: span 2; /* Ocupar dos columnas */
+        justify-self: center; /* Centrar horizontalmente */
+        width: 100%; /* Asegurar que ocupe el ancho completo */
+        height: auto; /* Permitir que la altura se ajuste automáticamente */
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Filtro de sombra suave */
+        border: 2px solid transparent; /* Borde transparente */
+      }
+
+      /* Animación de aparición del collage */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Contenedor principal con scroll -->
+    <div class="collage-wrapper">
+      <div class="collage-container" id="collage">
+        <!-- Aquí van las imágenes con enlaces directos -->
+        <img src="https://i.postimg.cc/2SFyNBD0/IMG-2485.avif" alt="Imagen 1" />
+        <img src="https://i.postimg.cc/0j8ZZSPh/IMG-1949.avif" alt="Imagen 2" />
+        <img
+          src="https://i.postimg.cc/0NDfsnNL/DB72-B354-F1-B3-412-A-ACB4-5-F0633811-A09.jpg"
+          alt="Imagen 3"
+        />
+        <img src="https://i.postimg.cc/0j2d7qCs/IMG-7198.avif" alt="Imagen 4" />
+        <img src="https://i.postimg.cc/GpK4GTg4/IMG-3796.avif" alt="Imagen 5" />
+        <img src="https://i.postimg.cc/85CjHkxt/IMG-4555.avif" alt="Imagen 6" />
+        <img src="https://i.postimg.cc/qRZgZVT0/IMG-1958.avif" alt="Imagen 7" />
+        <img src="https://i.postimg.cc/kG6G01JS/IMG-5028.avif" alt="Imagen 8" />
+        <img
+          src="https://i.postimg.cc/yYRWnbr4/508-A1-D5-D-17-F0-4606-8041-C850-D1-C43-F4-E.jpg"
+          alt="Imagen 9"
+        />
+        <img
+          src="https://i.postimg.cc/fTq5jkFg/AF0-BB6-E2-98-E3-4-D08-A58-B-BA7-FE5-CF4607.jpg"
+          alt="Imagen 10"
+        />
+        <img
+          src="https://i.postimg.cc/xCq1mxbZ/IMG-3108.avif"
+          alt="Imagen 11"
+        />
+        <img
+          src="https://i.postimg.cc/xjcRRLDD/IMG-1957.avif"
+          alt="Imagen 12"
+        />
+        <img
+          src="https://i.postimg.cc/DfHcYmnW/IMG-2168.avif"
+          alt="Imagen 13"
+        />
+        <img
+          src="https://i.postimg.cc/NjwkBVyB/IMG-3862.avif"
+          alt="Imagen 14"
+        />
+        <img
+          src="https://i.postimg.cc/SsznXS55/Captura-de-pantalla-2025-02-14-001920.png"
+          alt="Imagen 15"
+          class="cupon"
+        />
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("collage").style.display = "none";
+
+      setTimeout(() => {
+        document.getElementById("collage").style.display = "grid";
+      }, 2500);
+    </script>
+  </body>
+</html>
